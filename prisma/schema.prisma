@@ -7,6 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model users {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique(map: "unique_email") @db.VarChar(320)
+  first_name String?  @db.VarChar(120)
+  last_name  String?  @db.VarChar(120)
+  patronymic String?  @db.VarChar(120)
+  login      String   @unique(map: "unique_login") @db.VarChar(120)
+  gender     Boolean?
+  role       role     @default(user)
+  password   String   @db.VarChar(120)
+}
+
 enum role {
   admin
   moderator
