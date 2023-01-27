@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   @Redirect()
-  redirectClient() {
+  async redirectClient() {
     const host = this.configService.get<string>("clientHost");
 
     return { url: `http://${host}` };
