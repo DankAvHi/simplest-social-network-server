@@ -1,4 +1,3 @@
-import { OmitType } from "@nestjs/mapped-types";
-import { User } from "../entities/user.entity";
+import { CreateUserInput as GeneratedCreateUserInput } from "../../graphql";
 
-export class CreateUserInput extends OmitType(User, ["id"]) {}
+export class CreateUserInput extends GeneratedCreateUserInput {}
