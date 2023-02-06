@@ -21,6 +21,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
+  id: Int!
   first_name: String
   last_name: String
   patronymic: String

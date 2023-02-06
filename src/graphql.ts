@@ -25,6 +25,7 @@ export class CreateUserInput {
 }
 
 export class UpdateUserInput {
+    id: number;
     first_name?: Nullable<string>;
     last_name?: Nullable<string>;
     patronymic?: Nullable<string>;
