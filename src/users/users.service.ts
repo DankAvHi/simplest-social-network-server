@@ -28,8 +28,13 @@ export class UsersService {
     return await this.prisma.users.findMany();
   }
 
-  async findOne(id: number) {
-    return await this.prisma.users.findUnique({ where: { id } });
+  async findOne(id?: number, login?: string) {
+    if (id) {
+      return await this.prisma.users.findUnique({ where: { id } });
+    }
+    return await this.prisma.users.findUnique({
+      where: login.includes("@") ? { email: login } : { login },
+    });
   }
 
   async update(id: number, updateUserInput: UpdateUserInput) {
